@@ -34,6 +34,11 @@ dependencies:
   url_launcher:
   smooth_star_rating:
   youtube_player_flutter:
+  video_player:
+  image_picker:
+  firebase_storage:
+  file_picker:
+  path:
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +54,13 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - images/
+
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: font/Cairo-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:

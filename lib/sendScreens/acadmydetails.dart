@@ -2,14 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ClupOrders extends StatefulWidget {
-
-
+class AcadmyOrder extends StatefulWidget {
   @override
-  _ClupOrdersState createState() => _ClupOrdersState();
+  _AcadmyOrderState createState() => _AcadmyOrderState();
 }
 
-class _ClupOrdersState extends State<ClupOrders> {
+class _AcadmyOrderState extends State<AcadmyOrder> {
+
   String _name;
 
   String _date;
@@ -22,16 +21,15 @@ class _ClupOrdersState extends State<ClupOrders> {
 
   String _country;
 
-  String _location;
+  String _acadmy;
 
   String _city;
 
-  String _street;
 
 
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-  TextStyle stylefield = GoogleFonts.lato(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black87);
+  TextStyle stylefield = TextStyle(fontFamily: 'Cairo',fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black87);
 
   final name = TextEditingController();
 
@@ -45,16 +43,11 @@ class _ClupOrdersState extends State<ClupOrders> {
 
   final country = TextEditingController();
 
-  final location = TextEditingController();
+  final acadmy = TextEditingController();
 
   final city = TextEditingController();
 
-  final street = TextEditingController();
 
-
-
-
-  var selectedone;
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +65,8 @@ class _ClupOrdersState extends State<ClupOrders> {
                     height: 30,
                   ),
                   Text(
-                    'حجز اختبارات النادي',
-                    style: GoogleFonts.lato(color: Colors.amber[700],fontSize: 30,fontWeight:FontWeight.bold ),
+                    'حجز اختبارات اكاديمية',
+                    style: TextStyle(fontFamily: 'Cairo',color: Colors.black54,fontSize: 30,fontWeight:FontWeight.bold ),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
@@ -205,7 +198,7 @@ class _ClupOrdersState extends State<ClupOrders> {
                   ),
                   SizedBox(height: 10),
                   TextFormField(
-                    controller: location,
+                    controller: acadmy,
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'النادي لا يمكن ان يكون فارغ';
@@ -213,7 +206,7 @@ class _ClupOrdersState extends State<ClupOrders> {
                       return null;
                     },
                     onSaved: (value) {
-                      _location = value;
+                      _acadmy = value;
                     },
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -221,15 +214,16 @@ class _ClupOrdersState extends State<ClupOrders> {
                         labelText: 'النادي'),
                     style: stylefield,
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(50),
                     child: Container(
-                      color: Colors.black87,
+                      color: Colors.green,
                       height: 50,
                       width: 200,
-                      child: ElevatedButton(
-                          child: Text('ارسال الاستمارة ',style: GoogleFonts.lato(color: Colors.white,fontSize: 25)),
+                      child: RaisedButton(
+                          color: Colors.green[800],
+                          child: Text('ارسال الاستمارة ',style: TextStyle(fontFamily: 'Cairo',color: Colors.white,fontSize: 25)),
                           onPressed: () {
                             if (!_formkey.currentState.validate()) {
                               return;
@@ -263,8 +257,9 @@ class _ClupOrdersState extends State<ClupOrders> {
     final Numberid=numberid.text;
     final country1 = country.text;
     final City=city.text;
+    final Acadmy=acadmy.text;
 
-    FirebaseFirestore.instance.collection('clupOrder').add({
+    FirebaseFirestore.instance.collection('acadmyOrder').add({
       'name' : name1,
       'date' : data1,
       'number' : numperr,
@@ -272,6 +267,7 @@ class _ClupOrdersState extends State<ClupOrders> {
       'number id' : Numberid,
       'country' : country1,
       'city' : City,
+      'acadmy' : Acadmy,
     });
 
     name.clear();
@@ -281,6 +277,6 @@ class _ClupOrdersState extends State<ClupOrders> {
     numberid.clear();
     country.clear();
     city.clear();
-    street.clear();
+    acadmy.clear();
   }
 }
