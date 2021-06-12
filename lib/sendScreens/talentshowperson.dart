@@ -14,27 +14,27 @@ class TalentShowPerson extends StatefulWidget {
 class _TalentShowPersonState extends State<TalentShowPerson> {
 
   String _name;
-  String _posation;
+  String _position;
   String _country;
-  String _loaction;
-  String _numberid;
+  String _location;
+  String _numberId;
   String _number;
   String _email;
   String _date;
 
   final _key = GlobalKey<FormState>();
 
-  TextStyle stylefield = TextStyle(
+  TextStyle styleField = TextStyle(
       fontFamily: 'Cairo',
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: Colors.black87);
 
   final name = TextEditingController();
-  final posation = TextEditingController();
+  final position = TextEditingController();
   final country = TextEditingController();
-  final loaction = TextEditingController();
-  final numberid = TextEditingController();
+  final location = TextEditingController();
+  final numberId = TextEditingController();
   final number = TextEditingController();
   final email = TextEditingController();
   final date = TextEditingController();
@@ -75,13 +75,15 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
   }
 
 
+
   @override
   Widget build(BuildContext context) {
-    return Directionality(textDirection: TextDirection.rtl,
+    Size size = MediaQuery.of(context).size;
+      return Directionality(textDirection: TextDirection.rtl,
         child: Scaffold(
           body: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+            height:size.height,
+            width: size.width,
             child: Form(
               key: _key,
               child: Padding(
@@ -101,6 +103,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     SizedBox(
                       height: 10,
                     ),
+
                     TextFormField(
                       controller: name,
                       validator: (value) {
@@ -116,11 +119,11 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'الاسم'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
-                      controller: posation,
+                      controller: position,
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'مركز اللعب لا يمكن ان يكون فارغ';
@@ -128,13 +131,13 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                         return null;
                       },
                       onSaved: (value) {
-                        _posation = value;
+                        _position = value;
                       },
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'مركز اللعب'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
@@ -152,11 +155,11 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'البلد'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
-                      controller: loaction,
+                      controller: location,
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'العنوان لا يمكن ان يكون فارغ';
@@ -164,17 +167,17 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                         return null;
                       },
                       onSaved: (value) {
-                        _loaction = value;
+                        _location = value;
                       },
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'العنوان'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
-                      controller: numberid,
+                      controller: numberId,
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'الرقم القومي لا يمكن ان يكون فارغ';
@@ -182,13 +185,13 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                         return null;
                       },
                       onSaved: (value) {
-                        _numberid = value;
+                        _numberId = value;
                       },
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'الرقم القومي'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
@@ -206,7 +209,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'رقم الهاتف'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
@@ -224,7 +227,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'البريد الالكتروني'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     TextFormField(
@@ -242,13 +245,13 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           labelText: 'التاريخ'),
-                      style: stylefield,
+                      style: styleField,
                     ),
                     SizedBox(height: 10),
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        '$file',
+                        '${file==null?"":file.toString()}',
                         style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),
                         textAlign: TextAlign.center,
                       ),
@@ -271,7 +274,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           child: Text('معرض',style: TextStyle(fontFamily: 'Cairo',fontSize: 14,fontWeight: FontWeight.bold,color: Colors.white),),
                           onPressed: _pickVideo,
                         ),
-                        /// Material button is same as Rasied button
+                        /// Material button is same as Raised button
                         MaterialButton(
                           color: Colors.green[800],
                           shape: RoundedRectangleBorder(
@@ -308,24 +311,17 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
   }
   Future task()async{
 
-    name.clear();
-    date.clear();
-    number.clear();
-    email.clear();
-    numberid.clear();
-    country.clear();
-    loaction.clear();
-    posation.clear();
+
 
     /// always use camel case in dart for variable
     final Name=name.text;
     final Date = date.text;
     final Numper=number.text;
     final Email=email.text;
-    final Numberid=numberid.text;
+    final Numberid=numberId.text;
     final Country = country.text;
-    final Posation = posation.text;
-    final Loaction = loaction.text;
+    final Posation = position.text;
+    final Loaction = location.text;
 
          return  await FirebaseStorage.instance
         .ref()
@@ -344,7 +340,18 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
               'position' : Posation,
               'loaction' : Loaction,
            }).whenComplete((){
-             print("save");
+           name.clear();
+           date.clear();
+           number.clear();
+           email.clear();
+           numberId.clear();
+           country.clear();
+           location.clear();
+             position.clear();
+           setState(() {
+            file = null;
+           });
+
          }).catchError((e){
            print( "error => "+e.toString());
          });
