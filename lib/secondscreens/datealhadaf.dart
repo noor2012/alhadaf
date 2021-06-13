@@ -1,7 +1,6 @@
 import 'package:alhadaf/fetchScreens/dateacadmy.dart';
 import 'package:alhadaf/fetchScreens/dateclubs.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'detailphoto.dart';
 
 class DateAlhadaf extends StatelessWidget {

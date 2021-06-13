@@ -6,8 +6,8 @@ class Trainning extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height:10,
+      body: Padding(
+        padding: const EdgeInsets.only(top:8.0),
         child: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance.collection("تدريبات رياضية").snapshots(),
           builder: (_,snapshot){
@@ -37,6 +37,7 @@ class Trainning extends StatelessWidget {
                         liveUIColor: Colors.amber,
                       ),
                     ),
+                    SizedBox(height: 10,),
                     Text(text,style: TextStyle(fontSize: 12,color: Colors.green[800]),
                     ),
                   ],

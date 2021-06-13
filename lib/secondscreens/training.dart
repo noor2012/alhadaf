@@ -10,18 +10,17 @@ class Training extends StatelessWidget {
     return DefaultTabController(
         length: 4,
         child: Scaffold(
-          backgroundColor: Colors.white,
           appBar: AppBar(
-            elevation: 0,
+            backgroundColor: Colors.green[800],
             bottom: TabBar(
-              indicatorColor: Colors.green[800],
+              indicatorColor: Colors.white,
               isScrollable: true,
               tabs: [
                 Tab(
                   child: Container(
                     child: Text(
                       'تدريبات رياضية',
-                      style: TextStyle(fontSize: 18,color: Colors.white),
+                      style: TextStyle(fontFamily:'Cairo',fontSize: 18,color: Colors.white),
                     ),
                   ),
                 ),
@@ -29,7 +28,7 @@ class Training extends StatelessWidget {
                   child: Container(
                     child: Text(
                       'تكتيكات',
-                      style:TextStyle(fontSize: 18,color: Colors.white),
+                      style:TextStyle(fontFamily:'Cairo',fontSize: 18,color: Colors.white),
                     ),
                   ),
                 ),
@@ -37,7 +36,7 @@ class Training extends StatelessWidget {
                   child: Container(
                     child: Text(
                       'تدريبات حراس المرمي',
-                      style:TextStyle(fontSize: 18,color: Colors.white),
+                      style:TextStyle(fontFamily:'Cairo',fontSize: 18,color: Colors.white),
                     ),
                   ),
                 ),
@@ -45,7 +44,7 @@ class Training extends StatelessWidget {
                   child: Container(
                     child: Text(
                       'تدريبات المدربين',
-                      style:TextStyle(fontSize: 18,color: Colors.white),
+                      style:TextStyle(fontFamily:'Cairo',fontSize: 18,color: Colors.white),
                     ),
                   ),
                 ),

@@ -30,15 +30,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   cloud_firestore:
   firebase_core:
-  google_fonts:
-  url_launcher:
-  smooth_star_rating:
   youtube_player_flutter:
   video_player:
   image_picker:
   firebase_storage:
-  file_picker:
-  path:
+  better_player:
 
 dev_dependencies:
   flutter_test:

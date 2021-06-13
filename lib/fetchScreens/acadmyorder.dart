@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AcadmyOrders extends StatefulWidget {
   @override
@@ -29,7 +28,8 @@ class _AcadmyOrdersState extends State<AcadmyOrders> {
                 alignment: Alignment.center,
                 child: Text(
                   "اختر الاكاديمية المراد حجز ألاختبارات به",
-                  style: GoogleFonts.cairo(
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Colors.black),
@@ -84,7 +84,8 @@ class _AcadmyOrdersState extends State<AcadmyOrders> {
                                                     left: 25, top: 10),
                                                 child: Text(
                                                   snapshot.data.docs[i]['text'],
-                                                  style: GoogleFonts.cairo(
+                                                  style: TextStyle(
+                                                      fontFamily: 'Cairo',
                                                       fontSize: 20,
                                                       fontWeight: FontWeight.bold,
                                                       color: Colors.green),
@@ -95,7 +96,9 @@ class _AcadmyOrdersState extends State<AcadmyOrders> {
                                                 padding: const EdgeInsets.only(left: 15),
                                                 child: Text(
                                                   snapshot.data.docs[i]['price']
-                                                  ,style: GoogleFonts.cairo(color: Colors.green[800],fontWeight: FontWeight.bold,fontSize: 18),
+                                                  ,style: TextStyle(
+                                                fontFamily: 'Cairo'
+                                                ,color: Colors.green[800],fontWeight: FontWeight.bold,fontSize: 18),
                                                 ),
                                               ),
                                             ],
