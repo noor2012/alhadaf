@@ -112,7 +112,7 @@ class _ClupsOrdersState extends State<ClupsOrders> {
                                                       ['price'],
                                                   style: TextStyle(
                                                       fontFamily: 'Cairo',
-                                                      color: Colors.black87,
+                                                      color: Colors.black54,
                                                       fontWeight:
                                                           FontWeight.bold,
                                                       fontSize: 15),

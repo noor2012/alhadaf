@@ -86,19 +86,19 @@ class _AcadmyOrdersState extends State<AcadmyOrders> {
                                                   snapshot.data.docs[i]['text'],
                                                   style: TextStyle(
                                                       fontFamily: 'Cairo',
-                                                      fontSize: 20,
+                                                      fontSize: 18,
                                                       fontWeight: FontWeight.bold,
                                                       color: Colors.green),
                                                 ),
                                               ),
-                                              SizedBox(height: 38,),
+                                              SizedBox(height: 10,),
                                               Padding(
                                                 padding: const EdgeInsets.only(left: 15),
                                                 child: Text(
                                                   snapshot.data.docs[i]['price']
                                                   ,style: TextStyle(
                                                 fontFamily: 'Cairo'
-                                                ,color: Colors.green[800],fontWeight: FontWeight.bold,fontSize: 18),
+                                                ,color: Colors.black54,fontWeight: FontWeight.bold,fontSize: 18),
                                                 ),
                                               ),
                                             ],

@@ -1,4 +1,5 @@
 import 'package:alhadaf/sendScreens/talentshowperson.dart';
+import 'package:alhadaf/sendScreens/talentShowTeam.dart';
 import 'package:flutter/material.dart';
 import 'detailphoto.dart';
 
@@ -45,6 +46,7 @@ class HeroAlhadaf extends StatelessWidget {
                     Container(
                       child: InkWell(
                         onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_)=> TalentShowTeam()));
                         },
                         child: Card(
                           shape: RoundedRectangleBorder(
@@ -84,9 +86,6 @@ class HeroAlhadaf extends StatelessWidget {
                     ),
                   ]),
                 ),
-              ),
-              SizedBox(
-                height: 20,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 100),

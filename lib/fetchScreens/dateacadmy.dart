@@ -20,7 +20,7 @@ class DateAcadmy extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   'مواعيد اختبارات الاكاديميات',
-                  style: TextStyle(fontFamily: 'Cairo', fontSize: 25),
+                  style: TextStyle(fontFamily: 'Cairo', fontSize: 20),
                 ),
               ),
               SizedBox(
@@ -72,19 +72,16 @@ class DateAcadmy extends StatelessWidget {
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsets.only(
-                                                    left: 20, top: 10),
+                                                    left: 20, top:4),
                                                 child: Text(
                                                   snapshot.data.docs[i]['name'],
                                                   style: TextStyle(
                                                       fontFamily: 'Cairo',
-                                                      fontSize: 20,
+                                                      fontSize: 14,
                                                       fontWeight:
                                                       FontWeight.bold,
                                                       color: Colors.green[800]),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 15,
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
@@ -96,11 +93,8 @@ class DateAcadmy extends StatelessWidget {
                                                       color: Colors.black87,
                                                       fontWeight:
                                                       FontWeight.bold,
-                                                      fontSize: 18),
+                                                      fontSize: 14),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 15,
                                               ),
                                               Padding(
                                                 padding: const EdgeInsets.only(
@@ -112,7 +106,7 @@ class DateAcadmy extends StatelessWidget {
                                                       color: Colors.black87,
                                                       fontWeight:
                                                       FontWeight.bold,
-                                                      fontSize: 18),
+                                                      fontSize: 14),
                                                 ),
                                               ),
                                             ],

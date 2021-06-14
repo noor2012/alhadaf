@@ -5,19 +5,27 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
 
-class TalentShowPerson extends StatefulWidget {
+class TalentShowTeam extends StatefulWidget {
+
   @override
-  _TalentShowPersonState createState() => _TalentShowPersonState();
+  _TalentShowTeamState createState() => _TalentShowTeamState();
 }
 
-class _TalentShowPersonState extends State<TalentShowPerson> {
+class _TalentShowTeamState extends State<TalentShowTeam> {
   String _name;
+
   String _position;
+
   String _country;
+
   String _location;
+
   String _numberId;
+
   String _number;
+
   String _email;
+
   String _date;
 
   final _key = GlobalKey<FormState>();
@@ -29,14 +37,17 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
       color: Colors.black87);
 
   final nameCtrl = TextEditingController();
-  final positionCtrl = TextEditingController();
+
   final countryCtrl = TextEditingController();
+
   final locationCtrl = TextEditingController();
-  final numberIdCtrl = TextEditingController();
+
   final numberCtrl = TextEditingController();
-  final emailCtrl = TextEditingController();
-  final dateCtrl = TextEditingController();
+
+
+
   bool isLoading = false;
+
   final picker = ImagePicker();
 
   VideoPlayerController _videoPlayerController;
@@ -88,7 +99,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'تقديم طلب فردي',
+                      'تقديم طلب جماعي',
                       style: TextStyle(
                           fontFamily: 'Cairo',
                           fontSize: 18,
@@ -104,7 +115,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     controller: nameCtrl,
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'الاسم لا يمكن ان يكون فارغ';
+                        return 'اسماء الاعبين لا يمكن ان يكون فارغ';
                       }
                       return null;
                     },
@@ -114,26 +125,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
-                        labelText: 'الاسم'),
-                    style: styleField,
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    autofocus: false,
-                    controller: positionCtrl,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'مركز اللعب لا يمكن ان يكون فارغ';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _position = value;
-                    },
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'مركز اللعب'),
+                        labelText: 'اسماء الاعبين'),
                     style: styleField,
                   ),
                   SizedBox(height: 10),
@@ -177,25 +169,6 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                   SizedBox(height: 10),
                   TextFormField(
                     autofocus: false,
-                    controller: numberIdCtrl,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'الرقم القومي لا يمكن ان يكون فارغ';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _numberId = value;
-                    },
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'الرقم القومي'),
-                    style: styleField,
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    autofocus: false,
                     controller: numberCtrl,
                     validator: (value) {
                       if (value.isEmpty) {
@@ -213,59 +186,21 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     style: styleField,
                   ),
                   SizedBox(height: 10),
-                  TextFormField(
-                    autofocus: false,
-                    controller: emailCtrl,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'البريد الالكتروتي لا يمكن ان يكون فارغ';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _email = value;
-                    },
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'البريد الالكتروني'),
-                    style: styleField,
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    autofocus: false,
-                    controller: dateCtrl,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'التاريخ لا يمكن ان يكون فارغ';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _date = value;
-                    },
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'التاريخ'),
-                    style: styleField,
-                  ),
-                  SizedBox(height: 10),
                   isLoading
                       ? Container(
-                          width: size.width * 0.2,
-                          height: size.width * 0.2,
-                          child: Center(child: CircularProgressIndicator()),
-                        )
+                    width: size.width * 0.2,
+                    height: size.width * 0.2,
+                    child: Center(child: CircularProgressIndicator()),
+                  )
                       : Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            '${file == null ? "" : file.toString()}',
-                            style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${file == null ? "" : file.toString()}',
+                      style: TextStyle(
+                          fontSize: 10, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
@@ -352,12 +287,8 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
   Future task() async {
     /// always use camel case in dart for variable
     final name = nameCtrl.text;
-    final date = dateCtrl.text;
     final number = numberCtrl.text;
-    final email = emailCtrl.text;
-    final numberId = numberIdCtrl.text;
     final country = countryCtrl.text;
-    final position = positionCtrl.text;
     final location = locationCtrl.text;
     setState(() {
       isLoading = true;
@@ -370,25 +301,17 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
       value.ref.getDownloadURL().then((value) async {
         final videoLink = '$value';
         print("Video link => $value");
-        return await FirebaseFirestore.instance.collection('professional').add({
+        return await FirebaseFirestore.instance.collection('professional team').add({
           'video': videoLink,
           'name': name,
-          'date': date,
           'number': number,
-          'numberId': numberId,
-          'email': email,
           'country': country,
-          'position': position,
           'location': location,
         }).whenComplete(() {
           nameCtrl.clear();
-          dateCtrl.clear();
           numberCtrl.clear();
-          emailCtrl.clear();
-          numberIdCtrl.clear();
           countryCtrl.clear();
           locationCtrl.clear();
-          positionCtrl.clear();
           setState(() {
             file = null;
             isLoading = false;

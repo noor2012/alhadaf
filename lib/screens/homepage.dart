@@ -1,11 +1,11 @@
 import 'package:alhadaf/secondscreens/datealhadaf.dart';
 import 'package:alhadaf/secondscreens/detailphoto.dart';
-import 'package:alhadaf/secondscreens/gift.dart';
 import 'package:alhadaf/secondscreens/heroAlhadaf.dart';
 import 'package:alhadaf/secondscreens/testalhadaf.dart';
 import 'package:alhadaf/secondscreens/trainerAlhadaf.dart';
 import 'package:flutter/material.dart';
 import '../secondscreens/training.dart';
+import '../secondscreens/gift.dart';
 
 class HomePage extends StatefulWidget {
   @override

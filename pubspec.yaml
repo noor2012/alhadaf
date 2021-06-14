@@ -34,7 +34,8 @@ dependencies:
   video_player:
   image_picker:
   firebase_storage:
-  better_player:
+  flutter_rating_bar:
+  chewie:
 
 dev_dependencies:
   flutter_test:
