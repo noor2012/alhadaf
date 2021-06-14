@@ -16,10 +16,19 @@ class DateClubs extends StatelessWidget {
           ),
           child: ListView(
             children: [
+              Container(
+                height: 160,
+                width: double.infinity,
+                child: Image(
+                    image: NetworkImage(
+                        'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/WhatsApp%20Image%202021-06-04%20at%209.07.26%20AM.jpeg?alt=media&token=344437bb-79d0-4167-a22a-1dadf48163c9'),
+                    width: double.infinity,
+                    fit: BoxFit.cover),
+              ),
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'مواعيد اختبارات الاندية',
+                  'مواعيد الاندية',
                   style: TextStyle(fontFamily: 'Cairo', fontSize: 25),
                 ),
               ),

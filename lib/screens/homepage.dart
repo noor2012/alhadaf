@@ -33,11 +33,18 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 160,
                 width: double.infinity,
-                child: Image(
-                    image: NetworkImage(
-                        'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/WhatsApp%20Image%202021-06-04%20at%209.07.26%20AM.jpeg?alt=media&token=344437bb-79d0-4167-a22a-1dadf48163c9'),
-                    width: double.infinity,
-                    fit: BoxFit.cover),
+                child: Stack(
+                  children: [
+                    Positioned(
+                      child: IconButton(icon: Icon(Icons.menu,color: Colors.white,size: 20,),),
+                    ),
+                    Image(
+                        image: NetworkImage(
+                            'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/WhatsApp%20Image%202021-06-04%20at%209.07.26%20AM.jpeg?alt=media&token=344437bb-79d0-4167-a22a-1dadf48163c9'),
+                        width: double.infinity,
+                        fit: BoxFit.cover),
+                  ],
+                ),
               ),
               SizedBox(
                 height: 10,

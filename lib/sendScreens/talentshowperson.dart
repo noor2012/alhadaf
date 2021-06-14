@@ -88,7 +88,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'تقديم طلب فردي',
+                      'تقديم مقطع فيديو فردي',
                       style: TextStyle(
                           fontFamily: 'Cairo',
                           fontSize: 18,
@@ -104,7 +104,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     controller: nameCtrl,
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'الاسم لا يمكن ان يكون فارغ';
+                        return 'الاسم بالكامل لا يمكن ان يكون فارغ';
                       }
                       return null;
                     },
@@ -114,7 +114,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
-                        labelText: 'الاسم'),
+                        labelText: 'الاسم بالكامل'),
                     style: styleField,
                   ),
                   SizedBox(height: 10),

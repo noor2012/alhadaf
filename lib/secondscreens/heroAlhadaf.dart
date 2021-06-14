@@ -29,7 +29,7 @@ class HeroAlhadaf extends StatelessWidget {
                 height: 20,
               ),
               Text(
-                'استمتع الأن بفرصة تسويق رياضي محلية \n ودولية من خلال خدماتنا لتسويق اللاعبين',
+                'استمتع الأن بفرص التسويق الرياضي المحلي \n والدولي من خلال خدماتنا لتسويق اللاعبين',
                 style:
                 TextStyle(fontFamily: 'Cairo',fontSize: 15, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,

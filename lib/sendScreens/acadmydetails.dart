@@ -1,13 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class AcadmyOrder extends StatefulWidget {
+class AcadmyDetails extends StatefulWidget {
+
   @override
-  _AcadmyOrderState createState() => _AcadmyOrderState();
+  _AcadmyDetailsState createState() => _AcadmyDetailsState();
 }
 
-class _AcadmyOrderState extends State<AcadmyOrder> {
-
+class _AcadmyDetailsState extends State<AcadmyDetails> {
   String _name;
 
   String _date;
@@ -23,8 +23,6 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
   String _acadmy;
 
   String _city;
-
-
 
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
@@ -46,8 +44,6 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
 
   final city = TextEditingController();
 
-
-
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -64,7 +60,7 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
                     height: 30,
                   ),
                   Text(
-                    'حجز اختبارات اكاديمية',
+                    'حجز اكاديميات',
                     style: TextStyle(fontFamily: 'Cairo',color: Colors.black54,fontSize: 30,fontWeight:FontWeight.bold ),
                   ),
                   SizedBox(height: 20),
@@ -72,7 +68,7 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
                       controller: name,
                       validator: (value) {
                         if (value.isEmpty) {
-                          return 'الاسم لا يمكن ان يكون فارغ';
+                          return 'الاسم بالكامل لا يمكن ان يكون فارغ';
                         }
                         return null;
                       },
@@ -82,7 +78,7 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
-                          labelText: 'الاسم'),
+                          labelText: 'الاسم بالكامل'),
                       style: stylefield
                   ),
                   SizedBox(height: 10),
@@ -90,7 +86,7 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
                     controller: date,
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'التاريخ لا يمكن ان يكون فارغ';
+                        return 'سنه الميلاد لا يمكن ان يكون فارغ';
                       }
                       return null;
                     },
@@ -100,7 +96,7 @@ class _AcadmyOrderState extends State<AcadmyOrder> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
-                        labelText: 'التاريخ'),
+                        labelText: 'سنه الميلاد'),
                     style: stylefield,
                   ),
                   SizedBox(height: 10),

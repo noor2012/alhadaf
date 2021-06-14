@@ -99,7 +99,7 @@ class _TalentShowTeamState extends State<TalentShowTeam> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'تقديم طلب جماعي',
+                      'تقديم مقطع فيديو جماعي',
                       style: TextStyle(
                           fontFamily: 'Cairo',
                           fontSize: 18,

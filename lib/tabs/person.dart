@@ -47,7 +47,8 @@ class _PersonState extends State<Person> {
                                   Padding(
                                     padding: const EdgeInsets.only(left:8.0,right: 8.0),
                                     child: Row(
-                                      children: [
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
                                         Row(
                                           children: [
                                             Text('كود اللعب:',style: TextStyle(fontFamily: 'Cairo',fontSize: 12,color: Colors.grey[800],fontWeight: FontWeight.bold),),
@@ -67,8 +68,9 @@ class _PersonState extends State<Person> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left:8.0,right: 10.0),
+                                    padding: const EdgeInsets.only(left:8.0,right: 4.0),
                                     child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Row(
                                             children: [
@@ -80,7 +82,7 @@ class _PersonState extends State<Person> {
                                           SizedBox(width: 5,),
                                           Row(
                                             children: [
-                                              Text(' تاريخ الملاد:',style: TextStyle(fontFamily: 'Cairo',fontSize: 12,color: Colors.grey[800],fontWeight: FontWeight.bold),),
+                                              Text(' تاريخ الميلاد:',style: TextStyle(fontFamily: 'Cairo',fontSize: 12,color: Colors.grey[800],fontWeight: FontWeight.bold),),
                                               SizedBox(width: 5,),
                                               Text(snapshot.data.docs[i]['DOB'],style: TextStyle(fontFamily: 'Cairo',fontSize: 14,color: Colors.green[600],fontWeight: FontWeight.bold),)
                                             ],

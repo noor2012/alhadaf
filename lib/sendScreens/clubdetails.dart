@@ -67,14 +67,14 @@ class _ClupOrdersState extends State<ClupOrders> {
                   ),
                   Text(
                     'حجز اختبارات النادي',
-                    style: TextStyle(fontFamily: 'Cairo',color: Colors.black54,fontSize: 30,fontWeight:FontWeight.bold ),
+                    style: TextStyle(fontFamily: 'Cairo',color: Colors.black54,fontSize: 23,fontWeight:FontWeight.bold ),
                   ),
                   SizedBox(height: 20),
                   TextFormField(
                       controller: name,
                       validator: (value) {
                         if (value.isEmpty) {
-                          return 'الاسم لا يمكن ان يكون فارغ';
+                          return 'الاسم بالكامل لا يمكن ان يكون فارغ';
                         }
                         return null;
                       },
@@ -84,7 +84,7 @@ class _ClupOrdersState extends State<ClupOrders> {
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
-                          labelText: 'الاسم'),
+                          labelText: 'الاسم بالكامل'),
                       style: stylefield
                   ),
                   SizedBox(height: 10),
@@ -92,7 +92,7 @@ class _ClupOrdersState extends State<ClupOrders> {
                     controller: date,
                     validator: (value) {
                       if (value.isEmpty) {
-                        return 'التاريخ لا يمكن ان يكون فارغ';
+                        return 'سنة الميلاد لا يمكن ان يكون فارغ';
                       }
                       return null;
                     },
@@ -102,7 +102,7 @@ class _ClupOrdersState extends State<ClupOrders> {
                     decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
-                        labelText: 'التاريخ'),
+                        labelText: 'سنة الميلاد'),
                     style: stylefield,
                   ),
                   SizedBox(height: 10),
