@@ -1,24 +1,30 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:video_player/video_player.dart';
+import 'package:file_picker/file_picker.dart';
 
-class TalentShowPerson extends StatefulWidget {
+class TrainerClub extends StatefulWidget {
+
   @override
-  _TalentShowPersonState createState() => _TalentShowPersonState();
+  _TrainerClubState createState() => _TrainerClubState();
 }
 
-class _TalentShowPersonState extends State<TalentShowPerson> {
+class _TrainerClubState extends State<TrainerClub> {
+
   String _name;
-  String _position;
+
   String _country;
+
   String _location;
+
   String _numberId;
+
   String _number;
+
   String _email;
-  String _date;
+
 
   final _key = GlobalKey<FormState>();
 
@@ -29,43 +35,29 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
       color: Colors.black87);
 
   final nameCtrl = TextEditingController();
-  final positionCtrl = TextEditingController();
-  final countryCtrl = TextEditingController();
-  final locationCtrl = TextEditingController();
-  final numberIdCtrl = TextEditingController();
-  final numberCtrl = TextEditingController();
-  final emailCtrl = TextEditingController();
-  final dateCtrl = TextEditingController();
-  bool isLoading = false;
-  final picker = ImagePicker();
 
-  VideoPlayerController _videoPlayerController;
+  final countryCtrl = TextEditingController();
+
+  final locationCtrl = TextEditingController();
+
+  final numberIdCtrl = TextEditingController();
+
+  final numberCtrl = TextEditingController();
+
+  final emailCtrl = TextEditingController();
+
+
+  bool isLoading = false;
 
   File file;
 
-  _pickVideo() async {
-    final video = await picker.getVideo(source: ImageSource.gallery);
+  _pickFile()async{
+    final result = await FilePicker.getFile(fileExtension: '$file');
 
-    file = File(video.path);
+    file = File(result.path);
 
-    _videoPlayerController = VideoPlayerController.file(file)
-      ..initialize().then((_) {
-        setState(() {});
-        _videoPlayerController.play();
-      });
   }
 
-  _pickVideoCamera() async {
-    final video = await picker.getVideo(source: ImageSource.camera);
-
-    file = File(video.path);
-
-    _videoPlayerController = VideoPlayerController.file(file)
-      ..initialize().then((_) {
-        setState(() {});
-        _videoPlayerController.play();
-      });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +80,7 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'تقديم مقطع فيديو فردي',
+                      'تقديم مدرب جديد',
                       style: TextStyle(
                           fontFamily: 'Cairo',
                           fontSize: 18,
@@ -115,25 +107,6 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20)),
                         labelText: 'الاسم بالكامل'),
-                    style: styleField,
-                  ),
-                  SizedBox(height: 10),
-                  TextFormField(
-                    autofocus: false,
-                    controller: positionCtrl,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'مركز اللعب لا يمكن ان يكون فارغ';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _position = value;
-                    },
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'مركز اللعب'),
                     style: styleField,
                   ),
                   SizedBox(height: 10),
@@ -233,47 +206,28 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                     style: styleField,
                   ),
                   SizedBox(height: 10),
-                  TextFormField(
-                    autofocus: false,
-                    controller: dateCtrl,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'التاريخ لا يمكن ان يكون فارغ';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      _date = value;
-                    },
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        labelText: 'التاريخ'),
-                    style: styleField,
-                  ),
-                  SizedBox(height: 10),
                   isLoading
                       ? Container(
-                          width: size.width * 0.2,
-                          height: size.width * 0.2,
-                          child: Center(child: CircularProgressIndicator()),
-                        )
+                    width: size.width * 0.2,
+                    height: size.width * 0.2,
+                    child: Center(child: CircularProgressIndicator()),
+                  )
                       : Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            '${file == null ? "" : file.toString()}',
-                            style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${file == null ? "" : file.toString()}',
+                      style: TextStyle(
+                          fontSize: 10, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
                   Align(
                     alignment: Alignment.center,
                     child: Text(
-                      'ارسال فيديو من ',
+                      'ارسال سيرة ذاتية ',
                       style: TextStyle(
                           fontFamily: 'Cairo',
                           fontSize: 16,
@@ -281,41 +235,20 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
                           color: Colors.black),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      MaterialButton(
-                        color: Colors.green[800],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Text(
-                          'معرض',
-                          style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                        onPressed: _pickVideo,
+                  MaterialButton(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                      color: Colors.green[800],
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
+                      child: Text(
+                        'اختيار سيرة ذاتية من المعرض',
+                        style: TextStyle(
+                            fontFamily: 'Cairo',
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
-
-                      /// Material button is same as Raised button
-                      MaterialButton(
-                        color: Colors.green[800],
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Text(
-                          'كاميرا',
-                          style: TextStyle(
-                              fontFamily: 'Cairo',
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
-                        onPressed: _pickVideoCamera,
-                      ),
-                    ],
-                  ),
+                      onPressed: _pickFile),
                   SizedBox(
                     height: 10,
                   ),
@@ -353,43 +286,37 @@ class _TalentShowPersonState extends State<TalentShowPerson> {
   Future task() async {
     /// always use camel case in dart for variable
     final name = nameCtrl.text;
-    final date = dateCtrl.text;
     final number = numberCtrl.text;
     final email = emailCtrl.text;
     final numberId = numberIdCtrl.text;
     final country = countryCtrl.text;
-    final position = positionCtrl.text;
     final location = locationCtrl.text;
     setState(() {
       isLoading = true;
     });
     return await FirebaseStorage.instance
         .ref()
-        .child('videos/${Uri.file(file.path).pathSegments.last}')
+        .child('files/${Uri.file(file.path).pathSegments.last}')
         .putFile(file)
         .then((value) {
       value.ref.getDownloadURL().then((value) async {
         final videoLink = '$value';
         print("Video link => $value");
-        return await FirebaseFirestore.instance.collection('professional').add({
-          'video': videoLink,
+        return await FirebaseFirestore.instance.collection('New Trainer').add({
+          'file': videoLink,
           'name': name,
-          'date': date,
           'number': number,
           'numberId': numberId,
           'email': email,
           'country': country,
-          'position': position,
           'location': location,
         }).whenComplete(() {
           nameCtrl.clear();
-          dateCtrl.clear();
           numberCtrl.clear();
           emailCtrl.clear();
           numberIdCtrl.clear();
           countryCtrl.clear();
           locationCtrl.clear();
-          positionCtrl.clear();
           setState(() {
             file = null;
             isLoading = false;

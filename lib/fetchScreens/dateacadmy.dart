@@ -16,10 +16,30 @@ class DateAcadmy extends StatelessWidget {
           ),
           child: ListView(
             children: [
+              Stack(
+                  children: [
+                    Container(
+                      height: 160,
+                      width: double.infinity,
+                      child: Image(
+                          image: NetworkImage(
+                              'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/headertwo.jpg?alt=media&token=3bfe4758-1c7e-4916-a0a0-9f85b48a746f'),
+                          width: double.infinity,
+                          fit: BoxFit.cover),
+                    ),
+                    Positioned(
+                      child: IconButton(
+                        onPressed: (){
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.arrow_back_ios,color: Colors.white,),),
+                    )
+                  ]
+              ),
               Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'مواعيد اختبارات الاكاديميات',
+                  'مواعيد الاكاديميات',
                   style: TextStyle(fontFamily: 'Cairo', fontSize: 20),
                 ),
               ),

@@ -127,7 +127,7 @@ class _ClupOrdersState extends State<ClupOrders> {
                   SizedBox(height: 10),
                   TextFormField(
                     controller: email,
-                    keyboardType: TextInputType.number,
+                    keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value.isEmpty) {
                         return 'البريد الالكتروني لا يمكن ان يكون فارغ';

@@ -2,7 +2,7 @@
     package="com.example.alhadaf">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
    <application
-        android:label="alhadaf"
+        android:label="الهداف Alhaddaf"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

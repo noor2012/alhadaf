@@ -24,8 +24,8 @@ class _SplachScreenState extends State<SplachScreen> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/backgroundSplash.jpeg'),
-            fit: BoxFit.cover
+            image: AssetImage('images/header.jpg'),
+            fit: BoxFit.fill
           )
         ),
       )

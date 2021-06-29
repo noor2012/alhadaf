@@ -23,14 +23,25 @@ class _ClupsOrdersState extends State<ClupsOrders> {
           ),
           child: ListView(
             children: [
-              Container(
-                height: 160,
-                width: double.infinity,
-                child: Image(
-                    image: NetworkImage(
-                        'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/WhatsApp%20Image%202021-06-04%20at%209.07.26%20AM.jpeg?alt=media&token=344437bb-79d0-4167-a22a-1dadf48163c9'),
-                    width: double.infinity,
-                    fit: BoxFit.cover),
+              Stack(
+                  children: [
+                    Container(
+                      height: 160,
+                      width: double.infinity,
+                      child: Image(
+                          image: NetworkImage(
+                              'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/headertwo.jpg?alt=media&token=3bfe4758-1c7e-4916-a0a0-9f85b48a746f'),
+                          width: double.infinity,
+                          fit: BoxFit.cover),
+                    ),
+                    Positioned(
+                      child: IconButton(
+                        onPressed: (){
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(Icons.arrow_back_ios,color: Colors.white,),),
+                    )
+                  ]
               ),
               SizedBox(
                 height: 20,

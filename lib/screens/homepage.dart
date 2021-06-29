@@ -1,8 +1,8 @@
 import 'package:alhadaf/secondscreens/datealhadaf.dart';
-import 'package:alhadaf/secondscreens/detailphoto.dart';
 import 'package:alhadaf/secondscreens/heroAlhadaf.dart';
 import 'package:alhadaf/secondscreens/testalhadaf.dart';
 import 'package:alhadaf/secondscreens/trainerAlhadaf.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../secondscreens/training.dart';
 import '../secondscreens/gift.dart';
@@ -24,27 +24,24 @@ class _HomePageState extends State<HomePage> {
             image: DecorationImage(
                 image: NetworkImage(
                     'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/background.jpeg?alt=media&token=018e76e8-e52d-4870-b76b-20587ec780c5'),
-                fit: BoxFit.fill),
+                fit: BoxFit.cover),
           ),
           child: ListView(
             shrinkWrap: true,
             physics: ClampingScrollPhysics(),
             children: [
-              Container(
-                height: 160,
-                width: double.infinity,
-                child: Stack(
+              Stack(
                   children: [
-                    Positioned(
-                      child: IconButton(icon: Icon(Icons.menu,color: Colors.white,size: 20,),),
+                    Container(
+                      height: 160,
+                      width: double.infinity,
+                      child: Image(
+                          image: NetworkImage(
+                              'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/headertwo.jpg?alt=media&token=3bfe4758-1c7e-4916-a0a0-9f85b48a746f'),
+                          width: double.infinity,
+                          fit: BoxFit.cover),
                     ),
-                    Image(
-                        image: NetworkImage(
-                            'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/WhatsApp%20Image%202021-06-04%20at%209.07.26%20AM.jpeg?alt=media&token=344437bb-79d0-4167-a22a-1dadf48163c9'),
-                        width: double.infinity,
-                        fit: BoxFit.cover),
-                  ],
-                ),
+                  ]
               ),
               SizedBox(
                 height: 10,
@@ -205,15 +202,20 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 10,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: InkWell(onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) =>
-                      DetailPhoto(
-                      )));
-                },
-                  child: Image(image: NetworkImage(
-                      'https://firebasestorage.googleapis.com/v0/b/alhadaf-a3fa2.appspot.com/o/9.png?alt=media&token=a0845b61-6bc5-4a02-a92f-e62eee573996'),
-                  ),
-                ),
+                  child: StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance.collection("ads").snapshots(),
+                    builder: (_,snapshot){
+                      if(snapshot.hasData){
+                        return Center(
+                          child: Image(
+                            image: NetworkImage(snapshot.data.docs[0]['ad']),
+                          ),
+                        );
+                      }else{
+                        return Center(child: CircularProgressIndicator(),);
+                      }
+                    },
+                  )
               ),
               SizedBox(height: 20,),
             ],
